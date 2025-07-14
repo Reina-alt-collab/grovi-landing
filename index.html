@@ -1,62 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Grovi.net - Growth Partner para marcas de e-commerce. Escala tu negocio con sistemas de adquisición y fidelización rentables." />
-  <title>Grovi.net | Growth Partner para E-commerce</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-50 text-gray-800">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Grovi.net - Growth Partner para marcas de e-commerce. Escala tu negocio con sistemas de adquisición y fidelización rentables." />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Grovi.net | Growth Partner para E-commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-[#D9A6A1] text-[#242424]">
 
-  <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-      <h1 class="text-3xl font-bold text-gray-900">Grovi<span class="text-blue-500">.net</span></h1>
-      <a href="#contacto" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Contáctanos</a>
-    </div>
-  </header>
-
-  <main class="py-10">
-    <section class="text-center max-w-4xl mx-auto px-4">
-      <h2 class="text-4xl font-bold mb-4">Tu Socio Estratégico de Crecimiento</h2>
-      <p class="text-xl text-gray-600">No somos una agencia. Nos integramos a tu equipo para escalar tu e-commerce de forma predecible y rentable.</p>
-    </section>
-
-    <section class="mt-16 max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white shadow-lg rounded-xl p-6">
-        <h3 class="text-xl font-semibold mb-2">1. Diagnóstico Estratégico</h3>
-        <p class="text-gray-600">Auditoría completa en video + diseño de la Oferta de Captación Ganadora (OCAV).</p>
+    <!-- Header -->
+    <header class="bg-[#F8F5F1] shadow-md">
+      <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+        <div class="text-2xl font-bold">
+          <img src="/logo.png" alt="Grovi Logo" class="h-10 inline-block mr-2" /> Grovi<span class="text-[#F07255]">.net</span>
+        </div>
+        <nav class="space-x-6 hidden md:flex">
+          <a href="#sobre" class="hover:text-[#F07255]">Sobre Nosotros</a>
+          <a href="#casos" class="hover:text-[#F07255]">Casos de Éxito</a>
+          <a href="#contacto" class="bg-[#F07255] text-white px-4 py-2 rounded hover:bg-[#e05e44]">Agendar Llamada</a>
+        </nav>
       </div>
-      <div class="bg-white shadow-lg rounded-xl p-6">
-        <h3 class="text-xl font-semibold mb-2">2. Motor de Adquisición (EVA)</h3>
-        <p class="text-gray-600">Embudos VSL, campañas en Meta y Google, y contenido orgánico estratégico.</p>
+    </header>
+
+    <!-- Hero -->
+    <section class="text-center py-20 px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Tu Socio Estratégico de Crecimiento</h1>
+      <p class="text-xl max-w-2xl mx-auto text-[#242424]/80">Nos integramos a tu equipo para escalar tu e-commerce con sistemas probados, no promesas vacías.</p>
+      <a href="#contacto" class="mt-8 inline-block bg-[#F07255] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#e05e44] transition">Agendar Llamada</a>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="sobre" class="bg-[#F8F5F1] py-16 px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-semibold mb-6">Sobre Nosotros</h2>
+        <p class="text-lg text-[#242424]/80">En Grovi.net no somos una agencia tradicional. Creamos sistemas de adquisición y retención que funcionan a largo plazo. Nuestro enfoque combina análisis profundo, creatividad estratégica y un compromiso real con el crecimiento sostenible.</p>
       </div>
-      <div class="bg-white shadow-lg rounded-xl p-6">
-        <h3 class="text-xl font-semibold mb-2">3. Escalado y LTV</h3>
-        <p class="text-gray-600">Automatización de emails, análisis constante y mejora continua.</p>
+    </section>
+
+    <!-- Casos de Éxito -->
+    <section id="casos" class="py-16 px-6 bg-[#D6CDBF]">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-semibold text-center mb-12">Casos de Éxito</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Marca A</h3>
+            <p class="text-sm">+320% en ROAS en 3 meses con una estrategia multicanal y embudos personalizados.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Marca B</h3>
+            <p class="text-sm">Automatización de emails aumentó el LTV en un 47% en 6 meses.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">Marca C</h3>
+            <p class="text-sm">+180% en conversiones gracias a test A/B y optimización del UX.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="mt-20 bg-blue-600 text-white py-16 text-center">
-      <h2 class="text-3xl font-bold mb-4">¿Listo para escalar tu e-commerce?</h2>
-      <p class="text-lg mb-6">En Grovi.net construimos sistemas, no campañas. Te acompañamos a largo plazo.</p>
-      <a href="#contacto" class="bg-white text-blue-600 px-6 py-3 rounded font-semibold hover:bg-gray-200">Solicita una Auditoría</a>
+    <!-- Calendly CTA -->
+    <section id="contacto" class="bg-[#F8F5F1] py-20 px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-6">Agendar una Llamada</h2>
+      <p class="mb-8 text-[#242424]/80">Agenda una llamada de diagnóstico y explora cómo podemos ayudarte a alcanzar tus objetivos.</p>
+      <div class="max-w-3xl mx-auto">
+        <!-- Calendly Embed -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/tu_usuario_grovi/auditoria" style="min-width:320px;height:630px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
     </section>
 
-    <section id="contacto" class="mt-20 max-w-xl mx-auto px-4">
-      <h3 class="text-2xl font-bold mb-4 text-center">Contáctanos</h3>
-      <form action="https://formspree.io/f/maypglqz" method="POST" class="space-y-4">
-        <input type="text" name="name" placeholder="Tu nombre" class="w-full border border-gray-300 rounded px-4 py-2" required />
-        <input type="email" name="email" placeholder="Tu correo" class="w-full border border-gray-300 rounded px-4 py-2" required />
-        <textarea name="message" placeholder="Cuéntanos sobre tu negocio" rows="4" class="w-full border border-gray-300 rounded px-4 py-2" required></textarea>
-        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Enviar</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="mt-20 bg-gray-100 py-6 text-center text-gray-600 text-sm">
-    © 2025 Grovi.net · Growth Partner para marcas de e-commerce
-  </footer>
-
-</body>
+    <!-- Footer -->
+    <footer class="bg-[#242424] text-white py-6 text-center text-sm">
+      © 2025 Grovi.net ·  Todos los derechos reservados.
+    </footer>
+  </body>
 </html>
