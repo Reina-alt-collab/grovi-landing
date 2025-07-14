@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
     <title>Grovi - Soluciones innovadoras para su éxito</title>
     <link rel="icon" type="image/png" href="Favicon G.png" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,6 +30,10 @@
             background-color: var(--off-white);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
 
         /* Navigation */
@@ -101,6 +108,8 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(240, 114, 85, 0.3);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .cta-button:hover {
@@ -212,6 +221,8 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(240, 114, 85, 0.3);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .primary-button:hover {
@@ -228,6 +239,8 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .secondary-button:hover {
@@ -474,6 +487,99 @@
             opacity: 0.7;
         }
 
+        /* Cookies Panel */
+        .cookies-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 400px;
+            background: rgba(36, 36, 36, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            font-size: 0.9rem;
+        }
+
+        .cookies-panel.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .cookies-panel p {
+            margin: 0 0 1rem 0;
+            line-height: 1.4;
+        }
+
+        .cookies-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .cookies-accept {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.85rem;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .cookies-accept:hover {
+            background: #e85a3f;
+            transform: translateY(-1px);
+        }
+
+        .cookies-decline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.85rem;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .cookies-decline:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cookies-close {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .cookies-close:hover {
+            color: white;
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .hero-container {
@@ -650,6 +756,60 @@
             .case-study-card {
                 padding: 1.5rem;
             }
+            
+            .cookies-panel {
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                padding: 0.875rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .cookies-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .cookies-accept, .cookies-decline {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* iOS/Android Specific Optimizations */
+        @supports (-webkit-touch-callout: none) {
+            .hero-graphic {
+                -webkit-transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* Fix for iOS Safari viewport units */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                min-height: -webkit-fill-available;
+            }
+        }
+
+        /* Improve scrolling performance on mobile */
+        .section {
+            -webkit-overflow-scrolling: touch;
+            will-change: transform;
+        }
+
+        /* Better touch targets for mobile */
+        @media (max-width: 768px) {
+            .nav-link, .cta-button, .primary-button, .secondary-button {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .cookies-panel {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+            }
         }
 
         /* Scroll animations */
@@ -688,7 +848,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Innovative Solutions for Your Success</h1>
+                <h1>Soluciones innovadoras para su éxito</h1>
                 <p>Transformamos tu visión en resultados tangibles con estrategias innovadoras y soluciones personalizadas que impulsan el crecimiento de tu negocio.</p>
                 <div class="hero-cta">
                     <a href="#agendar" class="primary-button">Agendar Llamada</a>
@@ -810,6 +970,16 @@
         </div>
     </footer>
 
+    <!-- Cookies Panel -->
+    <div class="cookies-panel" id="cookiesPanel">
+        <button class="cookies-close" onclick="dismissCookies()">&times;</button>
+        <p>Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Al continuar navegando, aceptas nuestro uso de cookies.</p>
+        <div class="cookies-actions">
+            <button class="cookies-accept" onclick="acceptCookies()">Aceptar</button>
+            <button class="cookies-decline" onclick="dismissCookies()">Rechazar</button>
+        </div>
+    </div>
+
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -877,6 +1047,39 @@
                 mobileMenu.classList.remove('active');
             }
         });
+
+        // Cookies Panel Management
+        function showCookiesPanel() {
+            const panel = document.getElementById('cookiesPanel');
+            if (!localStorage.getItem('cookiesAccepted') && !localStorage.getItem('cookiesDeclined')) {
+                setTimeout(() => {
+                    panel.classList.add('show');
+                }, 2000); // Show after 2 seconds
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            dismissCookies();
+            // Add your analytics/tracking code here
+            console.log('Cookies accepted');
+        }
+
+        function dismissCookies() {
+            const panel = document.getElementById('cookiesPanel');
+            panel.classList.remove('show');
+            if (!localStorage.getItem('cookiesAccepted')) {
+                localStorage.setItem('cookiesDeclined', 'true');
+            }
+        }
+
+        // Initialize cookies panel
+        showCookiesPanel();
+
+        // Improve iOS Safari performance
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            document.body.style.cursor = 'pointer';
+        }
     </script>
 </body>
 </html>
