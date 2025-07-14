@@ -2,10 +2,12 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-touch-fullscreen" content="yes">
     <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#F8F5F1">
     <title>Grovi - Soluciones innovadoras para su éxito</title>
     <link rel="icon" type="image/png" href="Favicon G.png" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -44,8 +46,9 @@
             background: rgba(248, 245, 241, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(217, 166, 161, 0.1);
         }
 
         .nav-container {
@@ -54,12 +57,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 1rem;
+            height: 60px;
         }
 
         .logo {
-            height: 40px;
+            height: 35px;
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
         .logo:hover {
@@ -147,11 +152,13 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
+            min-height: 100dvh; /* Dynamic viewport height for mobile */
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, var(--off-white) 0%, var(--beige) 100%);
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
 
         .hero::before {
@@ -583,59 +590,99 @@
         /* Responsive Design */
         @media (max-width: 1024px) {
             .hero-container {
-                gap: 3rem;
+                gap: 2rem;
+                padding: 0 1.5rem;
             }
             
             .hero-content h1 {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
             
             .hero-graphic {
-                width: 350px;
-                height: 350px;
+                width: 320px;
+                height: 320px;
             }
             
             .calendly-widget {
                 max-width: 700px;
-                height: 650px;
+                height: 600px;
             }
         }
 
+        /* Tablet and small laptops */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 0;
+            }
+            
+            .nav-container {
+                padding: 0 1rem;
+                height: 50px;
+            }
+            
+            .logo {
+                height: 30px;
+            }
+            
             .nav-menu {
                 display: none;
                 position: fixed;
-                top: 100%;
+                top: 50px;
                 left: 0;
                 width: 100%;
                 background: var(--off-white);
                 flex-direction: column;
-                padding: 2rem;
+                padding: 1.5rem;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                border-top: 1px solid rgba(217, 166, 161, 0.2);
             }
             
             .nav-menu.active {
                 display: flex;
+            }
+            
+            .nav-link {
+                padding: 0.75rem 0;
+                text-align: center;
+                border-bottom: 1px solid rgba(217, 166, 161, 0.1);
+            }
+            
+            .nav-link:last-child {
+                border-bottom: none;
             }
 
             .mobile-menu {
                 display: flex;
             }
 
+            .hero {
+                padding-top: 70px;
+                min-height: calc(100vh - 70px);
+                min-height: calc(100dvh - 70px);
+            }
+
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 2rem;
-                padding: 2rem 1rem;
+                padding: 1rem;
             }
 
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
             }
 
             .hero-graphic {
-                width: 280px;
-                height: 280px;
+                width: 250px;
+                height: 250px;
+                margin: 0 auto;
             }
 
             .about-content {
@@ -645,23 +692,33 @@
 
             .about-features {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .hero-cta {
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .primary-button, .secondary-button {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 2rem;
+                min-height: 48px;
             }
 
             .calendly-widget {
                 max-width: 100%;
-                height: 600px;
+                height: 550px;
                 padding: 1rem;
-                margin: 0 1rem;
+                margin: 0;
             }
             
             .section {
-                padding: 4rem 0;
+                padding: 3rem 0;
             }
             
             .container {
@@ -669,92 +726,126 @@
             }
             
             .case-study-card {
-                padding: 2rem;
-                margin: 0 1rem;
+                padding: 2rem 1.5rem;
+                margin: 0;
             }
             
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-                line-height: 1.2;
+                gap: 1.5rem;
             }
             
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .section-subtitle {
                 font-size: 1rem;
                 padding: 0 1rem;
             }
+        }
 
+        /* iPhone and small mobile devices */
+        @media (max-width: 480px) {
             .nav-container {
                 padding: 0 1rem;
-            }
-
-            .container {
-                padding: 0 1rem;
+                height: 50px;
             }
             
+            .logo {
+                height: 28px;
+            }
+            
+            .cta-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero {
+                padding-top: 60px;
+                min-height: calc(100vh - 60px);
+                min-height: calc(100dvh - 60px);
+            }
+            
+            .hero-container {
+                padding: 0.5rem;
+                gap: 1.5rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.9rem;
+                line-height: 1.15;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.5;
+            }
+
             .hero-graphic {
-                width: 250px;
-                height: 250px;
+                width: 200px;
+                height: 200px;
             }
             
             .hero-graphic::after {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+            
+            .section-subtitle {
+                font-size: 0.95rem;
+                padding: 0 0.5rem;
+            }
+
+            .container {
+                padding: 0 0.75rem;
             }
             
             .calendly-widget {
                 height: 500px;
-                padding: 0.5rem;
-                margin: 0 0.5rem;
+                padding: 0.75rem;
+                border-radius: 15px;
+            }
+            
+            .case-study-card {
+                padding: 1.5rem 1rem;
+                border-radius: 15px;
             }
             
             .case-study-number {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
             
             .case-study-text {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
-            .primary-button, .secondary-button, .cta-button {
-                padding: 0.8rem 1.5rem;
+            .primary-button, .secondary-button {
+                padding: 0.875rem 1.5rem;
                 font-size: 0.9rem;
+                min-height: 44px;
             }
             
             .feature {
-                padding: 1rem;
+                padding: 1rem 0.75rem;
             }
             
             .feature-icon {
                 font-size: 2rem;
             }
-        }
-
-        @media (max-width: 320px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
+            
+            .about-text {
+                text-align: center;
             }
             
-            .calendly-widget {
-                height: 450px;
-                padding: 0.5rem;
-            }
-            
-            .case-study-card {
-                padding: 1.5rem;
+            .about-text h3 {
+                font-size: 1.3rem;
             }
             
             .cookies-panel {
@@ -763,6 +854,7 @@
                 bottom: 10px;
                 padding: 0.875rem 1rem;
                 font-size: 0.85rem;
+                max-width: none;
             }
             
             .cookies-actions {
@@ -773,6 +865,45 @@
             .cookies-accept, .cookies-decline {
                 width: 100%;
                 text-align: center;
+                min-height: 44px;
+            }
+        }
+
+        /* Very small devices (iPhone SE, etc.) */
+        @media (max-width: 375px) {
+            .hero-content h1 {
+                font-size: 1.7rem;
+            }
+            
+            .hero-graphic {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .calendly-widget {
+                height: 450px;
+                padding: 0.5rem;
+            }
+            
+            .case-study-card {
+                padding: 1.25rem 0.75rem;
+            }
+            
+            .section {
+                padding: 2.5rem 0;
+            }
+        }
+
+        /* iPhone X and newer with notch */
+        @supports (padding-top: constant(safe-area-inset-top)) {
+            .navbar {
+                padding-top: constant(safe-area-inset-top);
+            }
+        }
+
+        @supports (padding-top: env(safe-area-inset-top)) {
+            .navbar {
+                padding-top: env(safe-area-inset-top);
             }
         }
 
@@ -780,11 +911,10 @@
         @supports (-webkit-touch-callout: none) {
             .hero-graphic {
                 -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
             }
-        }
-
-        /* Fix for iOS Safari viewport units */
-        @supports (-webkit-touch-callout: none) {
+            
+            /* Fix for iOS Safari viewport units */
             .hero {
                 min-height: -webkit-fill-available;
             }
@@ -803,6 +933,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
             }
             
             .cookies-panel {
@@ -848,7 +980,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Soluciones innovadoras para su éxito</h1>
+                <h1>Innovative Solutions for Your Success</h1>
                 <p>Transformamos tu visión en resultados tangibles con estrategias innovadoras y soluciones personalizadas que impulsan el crecimiento de tu negocio.</p>
                 <div class="hero-cta">
                     <a href="#agendar" class="primary-button">Agendar Llamada</a>
@@ -929,7 +1061,7 @@
             <div class="calendly-container fade-in">
                 <div class="calendly-widget">
                     <!-- Calendly inline widget begin -->
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/soporte-grovi/llamada-de-descubrimiento-de-15-minutos" style="min-width:320px;height:100%;"></div>
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/soporte-grovi/llamada-de-descubrimiento-de-15-minutos?hide_gdpr_banner=1&hide_event_type_details=1" style="min-width:320px;height:100%;"></div>
                     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                     <!-- Calendly inline widget end -->
                 </div>
@@ -1076,9 +1208,59 @@
         // Initialize cookies panel
         showCookiesPanel();
 
-        // Improve iOS Safari performance
-        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        // iPhone/iOS specific optimizations
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent);
+        }
+
+        // Improve iOS Safari performance and fix viewport issues
+        if (isIOS()) {
             document.body.style.cursor = 'pointer';
+            
+            // Fix iOS Safari bottom bar issue
+            function setViewportHeight() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            setViewportHeight();
+            window.addEventListener('resize', setViewportHeight);
+            window.addEventListener('orientationchange', () => {
+                setTimeout(setViewportHeight, 100);
+            });
+        }
+
+        // Prevent zoom on input focus for mobile
+        if (isMobile()) {
+            const viewport = document.querySelector('meta[name=viewport]');
+            viewport.setAttribute('content', viewport.content + ', maximum-scale=1.0, user-scalable=no');
+        }
+
+        // Smooth scroll polyfill for older mobile browsers
+        if (isMobile()) {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 60; // Account for fixed navbar
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Optimize touch events for mobile
+        if (isMobile()) {
+            document.addEventListener('touchstart', function() {}, {passive: true});
+            document.addEventListener('touchmove', function() {}, {passive: true});
         }
     </script>
 </body>
