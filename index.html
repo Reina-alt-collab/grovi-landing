@@ -123,6 +123,18 @@
             transition: 0.3s;
         }
 
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -264,7 +276,7 @@
         }
 
         .hero-graphic::after {
-            content: '🚀';
+            content: '📈';
             position: absolute;
             top: 50%;
             left: 50%;
@@ -401,9 +413,9 @@
         }
 
         .calendly-widget {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            height: 600px;
+            height: 700px;
             background: var(--off-white);
             border-radius: 20px;
             padding: 2rem;
@@ -463,9 +475,41 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                gap: 3rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-graphic {
+                width: 350px;
+                height: 350px;
+            }
+            
+            .calendly-widget {
+                max-width: 700px;
+                height: 650px;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--off-white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
             }
 
             .mobile-menu {
@@ -476,6 +520,7 @@
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 2rem;
+                padding: 2rem 1rem;
             }
 
             .hero-content h1 {
@@ -483,8 +528,8 @@
             }
 
             .hero-graphic {
-                width: 300px;
-                height: 300px;
+                width: 280px;
+                height: 280px;
             }
 
             .about-content {
@@ -499,21 +544,52 @@
             .hero-cta {
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
             }
 
             .calendly-widget {
+                max-width: 100%;
                 height: 600px;
                 padding: 1rem;
+                margin: 0 1rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .case-study-card {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero-content h1 {
                 font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
             }
 
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
             }
 
             .nav-container {
@@ -522,6 +598,57 @@
 
             .container {
                 padding: 0 1rem;
+            }
+            
+            .hero-graphic {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hero-graphic::after {
+                font-size: 3rem;
+            }
+            
+            .calendly-widget {
+                height: 500px;
+                padding: 0.5rem;
+                margin: 0 0.5rem;
+            }
+            
+            .case-study-number {
+                font-size: 3rem;
+            }
+            
+            .case-study-text {
+                font-size: 1.2rem;
+            }
+            
+            .primary-button, .secondary-button, .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .feature {
+                padding: 1rem;
+            }
+            
+            .feature-icon {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .calendly-widget {
+                height: 450px;
+                padding: 0.5rem;
+            }
+            
+            .case-study-card {
+                padding: 1.5rem;
             }
         }
 
@@ -542,10 +669,10 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <img src="grovi-logo-removebg.png" alt="Logo de Grovi" class="h-12">
+            <img src="grovi-logo-removebg.png" alt="Logo de Grovi" class="logo">
             <ul class="nav-menu">
                 <li><a href="#sobre-nosotros" class="nav-link">Sobre Nosotros</a></li>
-                <li><a href="#case-study" class="nav-link">Case Study</a></li>
+                <li><a href="#casos-de-exito" class="nav-link">Casos de Éxito</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
             <a href="#agendar" class="cta-button">Agendar Llamada</a>
@@ -561,7 +688,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Soluciones innovadoras para su éxito</h1>
+                <h1>Innovative Solutions for Your Success</h1>
                 <p>Transformamos tu visión en resultados tangibles con estrategias innovadoras y soluciones personalizadas que impulsan el crecimiento de tu negocio.</p>
                 <div class="hero-cta">
                     <a href="#agendar" class="primary-button">Agendar Llamada</a>
@@ -587,7 +714,7 @@
                     
                     <p>Trabajamos de cerca con nuestros clientes para entender sus desafíos específicos y desarrollar soluciones que no solo resuelvan problemas, sino que impulsen el crecimiento sostenible a largo plazo.</p>
                     
-                    <a href="#case-study" class="primary-button">Ver Resultados</a>
+                    <a href="#casos-de-exito" class="primary-button">Ver Resultados</a>
                 </div>
                 
                 <div class="about-features fade-in">
@@ -617,9 +744,9 @@
     </section>
 
     <!-- Case Study Section -->
-    <section id="case-study" class="section case-study">
+    <section id="casos-de-exito" class="section case-study">
         <div class="container">
-            <h2 class="section-title fade-in">Case Study Destacado</h2>
+            <h2 class="section-title fade-in">Casos de Éxito Destacados</h2>
             <p class="section-subtitle fade-in">Descubre cómo ayudamos a nuestros clientes a alcanzar resultados extraordinarios</p>
             
             <div class="case-study-card fade-in">
@@ -642,18 +769,9 @@
             <div class="calendly-container fade-in">
                 <div class="calendly-widget">
                     <!-- Calendly inline widget begin -->
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/soporte-grovi/llamada-de-descubrimiento-de-15-minutos" style="min-width:220px;height:100%;"></div>
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/soporte-grovi/llamada-de-descubrimiento-de-15-minutos" style="min-width:320px;height:100%;"></div>
                     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                     <!-- Calendly inline widget end -->
-                    
-                    <!-- Fallback content for demo -->
-                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; background: var(--off-white); border-radius: 15px;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">📅</div>
-                        <h3 style="margin-bottom: 1rem; color: var(--base);">Widget de Calendly</h3>
-                        <p style="text-align: center; color: var(--base); opacity: 0.7; max-width: 300px;">
-                            https://calendly.com/soporte-grovi/llamada-de-descubrimiento-de-15-minutos
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -679,7 +797,7 @@
                 <div class="contact-item fade-in">
                     <div class="contact-icon">🌍</div>
                     <h4>Ubicación</h4>
-                    <p>Malaga, España</p>
+                    <p>Málaga, España</p>
                 </div>
             </div>
         </div>
@@ -735,12 +853,29 @@
             }
         });
 
-        // Mobile menu toggle (basic implementation)
+        // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
 
         mobileMenu.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
         });
     </script>
 </body>
